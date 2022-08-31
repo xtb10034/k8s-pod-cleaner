@@ -30,7 +30,7 @@ public class Service {
     private String podName;
 
     @Value("${cloud.clear.days}")
-    private int clearDays;
+    private double clearDays;
 
     @Value("${cloud.namespace.name}")
     private String nameSpace;
@@ -56,7 +56,7 @@ public class Service {
             String podStatus = b.getStatus().getPhase();
             String createTime = b.getMetadata().getCreationTimestamp().replace("T"," ").replace("Z","");
             String curTime = getDate();
-            int days = daysBetween(createTime,curTime);
+            double days = daysBetween(createTime,curTime);
             System.out.println("realPodName： "+ realPodName);
             System.out.println("podStatus： "+ podStatus);
             System.out.println("createTime： "+ createTime);

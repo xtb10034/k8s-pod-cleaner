@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class CommonUtil {
-    public static int daysBetween(String fromDt, String toDt) throws ParseException {
+    public static double daysBetween(String fromDt, String toDt) throws ParseException {
         Calendar cal = Calendar.getInstance();
         String format = "yyyy-MM-dd HH:mm:ss";
         SimpleDateFormat formatter = new SimpleDateFormat(format);
@@ -15,7 +15,7 @@ public class CommonUtil {
         cal.setTime(formatter.parse(toDt));
         Long toTime  = cal.getTimeInMillis();
         Long betweenDays = (toTime - fromTime) / (1000*3600*24);
-        return betweenDays.intValue();
+        return betweenDays.doubleValue();
     }
 
     public static  String getDate() {
